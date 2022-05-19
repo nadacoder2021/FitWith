@@ -6,6 +6,10 @@ I created this project inspired by an interview with FitWith. A social media pla
 ![Screenshot of homepage](https://github.com/nadacoder2021/FitWith/blob/main/assets/page2.png)
 ## Getting Started
 
+
+![Demo](https://user-images.githubusercontent.com/93179741/169365542-7105e2c6-8e6b-4566-a94c-3f4e445aa19c.mov)
+
+
 First, run the development server:
 
 ```bash
