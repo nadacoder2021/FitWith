@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 I created this project inspired by an interview with FitWith. A social media platform for fitness enthusiastic. It is currently at MVP stage
 
+![Screenshot of landing page](https://github.com/nadacoder2021/FitWith/blob/main/assets/page1.png)
+![Screenshot of homepage](https://github.com/nadacoder2021/FitWith/blob/main/assets/page2.png)
 ## Getting Started
 
 First, run the development server:
