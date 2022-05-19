@@ -39,13 +39,13 @@ export default function Home({ posts = [] }) {
     <div className=" min-h-screen ">
       <Header />
       <div className="flex ">
-        <div className="">
+        <div className="hidden md:flex ">
           <Sidebar height="60px" width="60px" src={logo1} links={leftLinks} />
         </div>
         <div className="w-full h-screen overflow-y-auto">
           <Grid posts={posts} />
         </div>
-        <div>
+        <div className="hidden md:flex ">
           <Sidebar
             height="60x"
             width="60px"

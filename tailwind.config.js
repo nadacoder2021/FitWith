@@ -14,7 +14,7 @@ module.exports = {
         bermuda: "#78dcca",
       },
       backgroundImage: {
-        "main": "url('/assets/main.jpeg')",
+        "main": "url('../assets/main.jpeg')",
       },
     },
   },

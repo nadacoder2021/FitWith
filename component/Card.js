@@ -16,10 +16,10 @@ function Card({
 
     console.log("this is image",image)
     return (
-      <div className=" flex justify-center items-center">
+      <div className=" flex justify-center items-center relative">
         <div
           key={postId}
-          className="  w-full flex-column justify-center items-center mb-7 rounded-lg border border-black-800 shadow-md dark:bg-gray-800 dark:border-gray-700"
+          className="  w-4/5 flex-column justify-center items-center mb-7 rounded-lg border border-black-800 shadow-md dark:bg-gray-800 dark:border-gray-700"
         >
           {image ? (
             <div className="flex justify-center items-center  relative">
@@ -38,10 +38,11 @@ function Card({
             <div className="" />
           )}
           {videoUrl ? (
-            <div className="flex justify-center  items-center relative">
+            <div className="flex justify-center items-center">
               <iframe
-                width="653"
-                height="380"
+              className=""
+                width="553"
+                height="280"
                 src={videoUrl}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
