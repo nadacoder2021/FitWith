@@ -10,7 +10,9 @@ I created this project inspired by an interview with FitWith. A social media pla
 ![Demo](https://user-images.githubusercontent.com/93179741/169365542-7105e2c6-8e6b-4566-a94c-3f4e445aa19c.mov)
 
 
-First, run the development server:
+##The site is live at : (https://fit-with1.vercel.app/)
+
+Or run the development server:
 
 ```bash
 npm run dev
@@ -26,4 +28,4 @@ I used NextJs to set up this app. I also used Prisma to set up a postgresSQL and
 
 ## Deploy on Vercel
 
-Next step is to deploy on Vercel.
+The site is deployed on Vercel.
