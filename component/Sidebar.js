@@ -55,8 +55,8 @@ useEffect(()=> {if(props.src){setImage(props.src)}}, [props.src])
                 className="mt-10 text-center hover:bg-sky-700 rounded-full"
                 key={i}
               >
-                <Link href="/">
-                  <a>{link}</a>
+                <Link href={link[1]}>
+                  <a>{link[0]}</a>
                 </Link>
               </div>
             ))}

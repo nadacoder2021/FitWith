@@ -1,16 +1,17 @@
 export const linksLeftSidebar = [
-  "Subcribers",
-  "Featured",
-  "Videos",
-  "Articles",
-  "Channels",
-  "Recipes",
-  "Favourites"
+  ["Subcribers", "/"],
+  ["Featured", "/"],
+  ["Videos", "/"],
+  ["Articles", "/"],
+  ["Channels", "/"],
+  ["Recipes", "/"],
+  ["Favourites", "/"],
 ];
 export const linksRightSidebar = [
-  "Posts",
-  "Contacts",
-  "Account",
-  "Settings"
+  ["Write Post", "/create"],
+  ["Posts", "/posts"],
+  ["Contacts", "/contacts"],
+  ["Account", "/account"],
+  ["Settings", "/settings"],
 ];
 

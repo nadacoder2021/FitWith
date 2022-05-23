@@ -8,16 +8,18 @@ function Create() {
   const addPost = (data) => axios.post("/api/posts", data);
 
   return (
-    <div className="flex justify-center items-center m-9 content-center max-w-lg shadow-md">
-      <div className="mb-2">
-        <h1
-          htmlFor="Write your post"
-          className="text-lg text-gray-600 p-5 text-center"
-        >
-          Write a new post
-        </h1>
+    <div className="flex justify-center items-center p-4 ">
+      <div className="flex-col items-center m-9  w-3/5 shadow-md p-6 border-solid border-black border-2">
+        <div className="mb-2 bg-teal-200 w-full flex justify-center items-center">
+          <h1
+            htmlFor="Write your post"
+            className="text-lg text-gray-600 p-5 text-center"
+          >
+            Write a new post
+          </h1>
+        </div>
+        <PostForm redirectPath="/" onSubmit={addPost} />
       </div>
-      <PostForm redirectPath="/" onSubmit={addPost} />
     </div>
   );
 }

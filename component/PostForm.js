@@ -5,16 +5,14 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { Formik, Form } from "formik";
 import PropTypes from "prop-types";
-import Input from "./Input.js"
+import Input from "./Input.js";
 
 // Prop-types will check props passed to your components against those definitions, and warn in development if they don't match.
 
 const ListingSchema = yup.object().shape({
-  image: yup.string(),
   title: yup.string().trim().required(),
-  description: yup.string().trim(),
-  text: yup.string(),
-  likes: yup.number().positive().integer().min(0),
+  post: yup.string().trim().required(),
+  image: yup.string(),
 });
 
 function PostForm({
@@ -28,32 +26,30 @@ function PostForm({
   const [imageUrl, setImageUrl] = useState(initialValues?.image ?? "");
 
   const { image, ...initialFormValues } = initialValues ?? {
-    image: "",
     title: "",
-    description: "",
-    text: "",
-    likes: 0,
+    post: "",
+    image: "",
   };
 
-   const handleOnSubmit = async (values = null) => {
-     let toastId;
-     try {
-       setDisabled(true);
-       toastId = toast.loading("Submitting...");
-       // Submit data
-       if (typeof onSubmit === "function") {
-         await onSubmit({ ...values, image: imageUrl });
-       }
-       toast.success("Successfully submitted", { id: toastId });
-       // Redirect user
-       if (redirectPath) {
-         router.push(redirectPath);
-       }
-     } catch (e) {
-       toast.error("Unable to submit", { id: toastId });
-       setDisabled(false);
-     }
-   };
+  const handleOnSubmit = async (values = null) => {
+    let toastId;
+    try {
+      setDisabled(true);
+      toastId = toast.loading("Submitting...");
+      // Submit data
+      if (typeof onSubmit === "function") {
+        await onSubmit({ ...values, image: imageUrl });
+      }
+      toast.success("Successfully submitted", { id: toastId });
+      // Redirect user
+      if (redirectPath) {
+        router.push(redirectPath);
+      }
+    } catch (e) {
+      toast.error("Unable to submit", { id: toastId });
+      setDisabled(false);
+    }
+  };
 
   return (
     <div>
@@ -64,70 +60,56 @@ function PostForm({
         onSubmit={handleOnSubmit}
       >
         {({ isSubmitting, isValid }) => (
-          <Form className="space-y-8">
-            <div className="space-y-6">
+          <Form className="space-y-8 ">
+            <div className=" space-y-6">
               <Input
                 name="title"
                 type="text"
                 label="Title"
-                placeholder="Entire rental unit - Amsterdam"
+                placeholder="Entire title of your post"
                 disabled={disabled}
               />
 
               <Input
-                name="description"
+                name="post"
                 type="textarea"
-                label="Description"
-                placeholder="Very charming and modern apartment in Amsterdam..."
+                label="Post"
+                placeholder="Write your post"
                 disabled={disabled}
                 rows={5}
               />
-
-              <Input
-                name="price"
-                type="number"
-                min="0"
-                label="Price per night"
-                placeholder="100"
-                disabled={disabled}
-              />
-
-              <div className="flex space-x-4">
-                <Input
-                  name="guests"
-                  type="number"
-                  min="0"
-                  label="Guests"
-                  placeholder="2"
-                  disabled={disabled}
-                />
-                <Input
-                  name="beds"
-                  type="number"
-                  min="0"
-                  label="Beds"
-                  placeholder="1"
-                  disabled={disabled}
-                />
-                <Input
-                  name="baths"
-                  type="number"
-                  min="0"
-                  label="Baths"
-                  placeholder="1"
-                  disabled={disabled}
-                />
+              <div className="flex items-center justify-center w-full">
+                <label className="flex flex-col w-full h-32 border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
+                  <div className="flex flex-col items-center justify-center pt-7">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-12 h-12 text-gray-400 group-hover:text-gray-600"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p className="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
+                      Select a photo
+                    </p>
+                  </div>
+                  <input type="file" className="opacity-0" />
+                </label>
               </div>
-            </div>
 
-            <div className="flex justify-end">
-              <button
-                type="submit"
-                disabled={disabled || !isValid}
-                className="bg-rose-600 text-white py-2 px-6 rounded-md focus:outline-none focus:ring-4 focus:ring-rose-600 focus:ring-opacity-50 hover:bg-rose-500 transition disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-600"
-              >
-                {isSubmitting ? "Submitting..." : "Submit"}
-              </button>
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  disabled={disabled || !isValid}
+                  className="bg-rose-600 text-white py-2 px-6 rounded-md focus:outline-none focus:ring-4 focus:ring-rose-600 focus:ring-opacity-50 hover:bg-rose-500 transition disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-600"
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </button>
+              </div>
             </div>
           </Form>
         )}
