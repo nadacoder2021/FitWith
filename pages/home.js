@@ -3,7 +3,7 @@ import Header from "../component/Header";
 import Grid from "../component/Grid";
 import { useState, useEffect } from "react";
 import { PrismaClient } from "@prisma/client";
-import Sidebar from "../component/Sidebar";
+import { Sidebar, SidebarMobile } from "../component/Sidebar";
 import { linksLeftSidebar } from "../component/data";
 import { linksRightSidebar } from "../component/data";
 import thumbnail from "../assets/thumbnail.jpeg";
@@ -39,7 +39,7 @@ export default function Home({ posts = [] }) {
         <div className="hidden md:flex ">
           <Sidebar height="60px" width="60px" src={logo1} links={leftLinks} />
         </div>
-        <div className="w-full h-screen overflow-y-auto">
+        <div className="w-full h-screen overflow-y-auto z-0">
           <Grid posts={posts} />
         </div>
         <div className="hidden md:flex ">
