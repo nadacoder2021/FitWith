@@ -91,8 +91,8 @@ export function SidebarMobile(props) {
         />
       )}
       {toggleMenu && (
-        <div className="w-64 border flex-col bg-white py-4 px-6 h-full">
-          <div className=" flex justify-center items-center">
+        <div className="w-34 border flex-col bg-white py-4 px-6 h-full">
+          <div className=" flex justify-start items-start">
             <div className="flex p-1 justify-center items-center bg-black rounded-full w-fit">
               <Link href="/">
                 <Image

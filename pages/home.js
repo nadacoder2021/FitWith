@@ -33,7 +33,7 @@ export default function Home({ posts = [] }) {
   console.log("left links on main", leftLinks);
 
   return (
-    <div className=" min-h-screen ">
+    <div className=" min-h-screen max-w-screen">
       <Header />
       <div className="flex ">
         <div className="hidden md:flex ">
